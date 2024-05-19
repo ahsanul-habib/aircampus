@@ -11,7 +11,7 @@ module.exports = {
         accent: '#1f6a9b'
       },
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
       },
     },
   },

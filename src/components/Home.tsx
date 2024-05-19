@@ -31,15 +31,15 @@ const Home = () => {
     },[])
 
   return (
-    <div className='font-poppins'>
+    <div className='font-montserrat'>
         <header className='h-16 bg-white flex w-full justify-between items-center px-4 text-black'>
             <a href="/" className='w-32'><img src="./logo.jpg" alt="" /></a>
             <div className="md:flex hidden gap-3">
                 <a href="#" className='border-2 hover:bg-accent hover:text-white px-2 py-1 border-accent flex'>HOME</a>
-                <a href="#" className='hover:text-accent flex items-center'>ABOUT US</a>
-                <a href="#" className='hover:text-accent flex items-center'>IMPACT</a>
-                <a href="#" className='hover:text-accent flex items-center'>BLOGS</a>
-                <a href="#" className='hover:text-accent flex items-center'>RUET IPE Club</a>
+                <a href="./aboutus" className='hover:text-accent flex items-center'>ABOUT US</a>
+                <a href="./impact" className='hover:text-accent flex items-center'>IMPACT</a>
+                <a href="./blogs" className='hover:text-accent flex items-center'>BLOGS</a>
+                <a href="./ruetipe" className='hover:text-accent flex items-center'>RUET IPE Club</a>
                 <a href="#" className='px-2 py-2 text-white rounded-full bg-accent hover:border-b hover:border-blue-500 hover:text-blue-500 flex items-center'>DONATE</a>
             </div>
             <button onClick={toggleNav} className='flex md:hidden justify-center items-center w-10 h-10 border-black rounded-lg m-3 hover:text-white hover:bg-black'>

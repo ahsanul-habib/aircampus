@@ -10,7 +10,7 @@ const AboutUS = () => {
         setNavOpen(prev=>!prev);
     }
   return (
-    <div>
+    <div className='font-montserrat'>
                       <header className='h-16 bg-white flex w-full justify-between items-center px-4 text-black'>
             <a href="/" className='w-32'><img src="./logo.jpg" alt="" /></a>
             <div className="md:flex hidden gap-3">
