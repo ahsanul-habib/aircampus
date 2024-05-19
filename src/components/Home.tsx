@@ -2,83 +2,33 @@ import {useState,useEffect} from 'react'
 import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import axios from 'axios';
-import LocationData from './LocationData';
+// import LocationData from './LocationData';
 
-interface LocationInterface {
-    title: string;
-    lon: string;
-    lat: string;
-  }
+type Regions = {
+    [key: string]: number;
+  };
 
-interface MainDataInterface {
-    title: string;
-    pm10: number;
-    pmPercentage: number;
-}
-
-interface RootObject {
-    method: string;
-    url: string;
-    params: Params;
-    headers: Headers;
-  }
-  
-  interface Headers {
-    'X-RapidAPI-Key': string;
-    'X-RapidAPI-Host': string;
-  }
-  
-  interface Params {
-    lon: string;
-    lat: string;
-  }
 
 const Home = () => {
     const [navOpen,setNavOpen]=useState(false);
-    const [APIData,setAPIData]=useState([]);
+    const [sortedArray, setSortedArray] = useState<[string, any][]>([]);
+    const [largestNumber, setLargestNumber]=useState(0);
     const toggleNav=()=>{
         setNavOpen(prev=>!prev);
     }
-    let mainData:MainDataInterface[]=[];
-    const fetchOne= async (location:LocationInterface)=>{
-        const options = {
-            method: 'GET',
-            url: 'https://air-quality.p.rapidapi.com/current/airquality',
-            params: {
-            //   lon: '-73.00597',
-              lon: location.lon,
-            //   lat: '40.71427'
-              lat: location.lat
-            },
-            headers: {
-              'X-RapidAPI-Key': '756cf34cb9msh3072bd9bfed2503p19cd05jsn05d599337338',
-              'X-RapidAPI-Host': 'air-quality.p.rapidapi.com'
-            }
-          };
-          const data=await axios.request(options);
-        //   console.log(data.data.data[0].pm10);
-          mainData=[...mainData,
-            {title:location.title,
-            pm10:data.data.data[0].pm10,
-            pmPercentage:0}]
-        //   console.log(mainData);
+    // let largestNumber=0;
+    const fetchData=async ()=>{
+        const data=await axios.get('https://corsproxy.io/?https%3A%2F%2Faircampus-backend.onrender.com%2FgetData');
+        const mainData=data.data;
+        const arr = Object.entries(mainData as {[key: string]: any });
+        arr.sort((a, b) => b[1] - a[1]);
+        setLargestNumber(arr[0][1]);
+        setSortedArray(arr);
     }
-    // fetchOne(    {
-    //     title: "Dhaka",
-    //     lon: "90.4125",
-    //     lat: "23.8103"
-    //   });
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         for (const data of LocationData) {
-    //             await fetchOne(data);
-    //         }
-    //     };
-
-    //     fetchData();
-    //     console.log(mainData);
-    // }, []);
+    useEffect(()=>{
+        fetchData();
+    },[])
 
   return (
     <div className='font-poppins'>
@@ -128,54 +78,18 @@ const Home = () => {
             <div className='bg-accent w-full md:w-2/5 rounded-lg flex flex-col items-center text-white text-xl p-3'>
                 <span className="my-1">Air Quality Monitor</span>
                 <div className="w-full flex flex-col px-1">
-                    <div className='flex w-full items-center'>
-                        <span className='flex items-center w-32'>Dhaka</span>
+                    {sortedArray.map((item,i)=>
+                        <div key={i} className='flex w-full items-center'>
+                        <span className='flex items-center w-32'>{item[0]}</span>
                         <div className='flex-grow w-full'>
-                            <div className="w-full bg-white h-4 rounded-lg"></div>
+                            <div className={`bg-white justify-center items-center group flex h-5 rounded-lg ${item[1] ? `w-[${((item[1]*100)/largestNumber)}%]` : ''}`}>
+                                <span className="text-black font-bold text-sm hidden group-hover:flex">{item[1]}µg/m³</span>
+                            </div>
                         </div>
                     </div>
-                    <div className='flex w-full items-center'>
-                        <span className='flex items-center w-32'>Rajshahi</span>
-                        <div className='flex-grow w-full'>
-                            <div className="w-1/4 bg-white h-4 rounded-lg"></div>
-                        </div>
-                    </div>
-                    <div className='flex w-full items-center'>
-                        <span className='flex items-center w-32'>Sylhet</span>
-                        <div className='flex-grow w-full'>
-                            <div className="w-1/2 bg-white h-4 rounded-lg"></div>
-                        </div>
-                    </div>
-                    <div className='flex w-full items-center'>
-                        <span className='flex items-center w-32'>Khulna</span>
-                        <div className='flex-grow w-full'>
-                            <div className="w-1/5 bg-white h-4 rounded-lg"></div>
-                        </div>
-                    </div>
-                    <div className='flex w-full items-center'>
-                        <span className='flex items-center w-32'>Mymen.</span>
-                        <div className='flex-grow w-full'>
-                            <div className="w-1/2 bg-white h-4 rounded-lg"></div>
-                        </div>
-                    </div>
-                    <div className='flex w-full items-center'>
-                        <span className='flex items-center w-32'>Chittag.</span>
-                            <div className='flex-grow w-full'>
-                            <div className="w-3/5 bg-white h-4 rounded-lg"></div>
-                        </div>
-                    </div>
-                    <div className='flex w-full items-center'>
-                        <span className='flex items-center w-32'>Rangpur</span>
-                        <div className='flex-grow w-full'>
-                            <div className="w-1/2 bg-white h-4 rounded-lg"></div>
-                        </div>
-                    </div>
-                    <div className='flex w-full items-center'>
-                        <span className='flex items-center w-32'>Barishal</span>
-                        <div className='flex-grow w-full'>
-                            <div className="w-1/5 bg-white h-4 rounded-lg"></div>
-                        </div>
-                    </div>
+                    )
+
+                    }
 
                 </div>
             </div>
