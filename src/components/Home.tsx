@@ -18,8 +18,9 @@ const Home = () => {
     }
     // let largestNumber=0;
     const fetchData=async ()=>{
-        const data=await axios.get('https://corsproxy.io/?https%3A%2F%2Faircampus-backend.onrender.com%2FgetData');
+        const data=await axios.get('https://aircampus-backend.onrender.com/getData');
         const mainData=data.data;
+        console.log(mainData);
         const arr = Object.entries(mainData as {[key: string]: any });
         arr.sort((a, b) => b[1] - a[1]);
         setLargestNumber(arr[0][1]);
@@ -108,7 +109,13 @@ const Home = () => {
                 </div>
             </div>
         </div>
-        
+        <div className='w-full flex flex-col items-center'>
+                <img src="./home1.jpg" alt="" />
+                <img src="./home2.jpg" alt="" />
+                <img src="./home3.jpg" alt="" />
+                <img src="./home4.jpg" alt="" />
+                <img src="./home5.jpg" alt="" />
+        </div>
     </div>
   )
 }
