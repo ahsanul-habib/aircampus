@@ -32,8 +32,8 @@ const AirWarning=
             const toggleNav=()=>{
                 setNavOpen(prev=>!prev);
             }
-            // const firstCity = sortedArray[0][0];
-            const firstCity = "Dhaka";
+            const firstCity =sortedArray[0]? sortedArray[0][0]:'';
+            // const firstCity = "Dhaka";
     function getRandomItem<T>(array: T[]): T {
         const randomIndex = Math.floor(Math.random() * array.length);
         return array[randomIndex];
@@ -81,7 +81,7 @@ const AirWarning=
             </div>
             </div>
         </div>
-        <img src="./hero.png" alt="" />
+        <img className='w-full' src="./hero.png" alt="" />
         <div className="md:p-20 p-5 flex gap-5 flex-col md:flex-row w-full bg-white">
             <div className='bg-accent w-full md:w-2/5 rounded-lg flex flex-col items-center text-white text-xl p-3'>
                 <span className="my-1">Air Quality Monitor</span>
@@ -147,7 +147,10 @@ const AirWarning=
             <div className="bg-accent2 flex justify-center py-6">
                 <span className="font-extrabold text-2xl sm:text-4xl md:text-5xl text-white w-full md:w-3/4 lg:3/5 text-center">LET’S FIGHT TOGETHER AGAINST AIR POLLUTION</span>
             </div>
+            <div className="flex justify-center">
             <img src="./cleanair.png" alt="" />
+
+            </div>
             <div className='flex justify-center bg-background pb-16 lg:pb-24'>
             <a href="./volunteers"><span className="font-extrabold text-2xl sm:text-4xl md:text-6xl text-accent">Join the Movement</span></a>
 
