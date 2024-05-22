@@ -51,7 +51,7 @@ const AirWarning=
     }
 
     useEffect(()=>{
-        // fetchData();
+        fetchData();
     },[])
 
   return (
