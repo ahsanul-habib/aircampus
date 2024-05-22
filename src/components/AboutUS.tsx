@@ -18,7 +18,7 @@ const AboutUS = () => {
                 <a href="./aboutus" className='border-2 hover:bg-accent hover:text-white px-2 py-1 border-accent flex'>ABOUT US</a>
                 <a href="./impact" className='hover:text-accent flex items-center'>IMPACT</a>
                 <a href="./blogs" className='hover:text-accent flex items-center'>BLOGS</a>
-                <a href="./ruetipe" className='hover:text-accent flex items-center'>RUET IPE Club</a>
+                <a href="./volunteers" className='hover:text-accent flex items-center'>VOLUNTEERS</a>
                 <a href="#" className='px-2 py-2 text-white rounded-full bg-accent hover:border-b hover:border-blue-500 hover:text-blue-500 flex items-center'>DONATE</a>
             </div>
             <button onClick={toggleNav} className='flex md:hidden justify-center items-center w-10 h-10 border-black rounded-lg m-3 hover:text-white hover:bg-black'>
