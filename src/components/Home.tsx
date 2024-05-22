@@ -81,7 +81,7 @@ const AirWarning=
             </div>
             </div>
         </div>
-        <img className='w-full' src="./hero.png" alt="" />
+        <img className='w-full' src="./homehero.jpg" alt="" />
         <div className="md:p-20 p-5 flex gap-5 flex-col md:flex-row w-full bg-white">
             <div className='bg-accent w-full md:w-2/5 rounded-lg flex flex-col items-center text-white text-xl p-3'>
                 <span className="my-1">Air Quality Monitor</span>

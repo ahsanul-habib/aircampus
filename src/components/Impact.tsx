@@ -52,7 +52,10 @@ const Impact = () => {
             <img src="./impact4.png" alt="" />
             <img src="./impact5.png" alt="" />
         </div>
+        <div className="w-full flex justify-center">
+
         <img src="./cleanair.png" alt="" />
+        </div>
         <div className='flex justify-center bg-background pb-16 lg:pb-24'>
             <a href="./volunteers"><span className="font-extrabold text-2xl sm:text-4xl md:text-6xl text-accent">Join the Movement</span></a>
 
