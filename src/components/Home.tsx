@@ -41,7 +41,7 @@ const AirWarning=
     const Quote=getRandomItem(DailyQuotes);
     // let largestNumber=0;
     const fetchData=async ()=>{
-        const data=await axios.get("https://aircampus-backend.onrender.com/");
+        const data=await axios.get("https://aircampus-backend2.onrender.com");
         const mainData=data.data;
         console.log(mainData);
         const arr = Object.entries(mainData as {[key: string]: any });
