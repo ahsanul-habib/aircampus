@@ -27,7 +27,7 @@ const Footer = () => {
                 </span><br />
                 <span>Address: RUET,Rajshahi</span><br/><br/>
                 <span>Helpline: 01783370029</span><br/><br/>
-                <span>Email: aircampus24@gmail.com</span>
+                <span>Email: info@aircampus.org</span>
                 </div>
             </div>
         </div>

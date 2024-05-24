@@ -136,11 +136,14 @@ const AirWarning=
             </div>
         </div>
         <div className='w-full flex flex-col items-center'>
-                <img src="./2.jpg" alt="" />
+                <img src="./homechange1.jpg" alt="" />
+                <img src="./homechange2.jpg" alt="" />
+                {/* <img src="./2.jpg" alt="" /> */}
+                {/* <img src="./2.jpg" alt="" />
                 <img src="./homehero.jpg" alt="" />
                 <img src="./4.jpg" alt="" />
                 <img src="./5.jpg" alt="" />
-                <img src="./6.jpg" alt="" />
+                <img src="./6.jpg" alt="" /> */}
         </div>
         <div>
 
