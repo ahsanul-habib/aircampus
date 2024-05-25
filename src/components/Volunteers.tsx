@@ -36,7 +36,7 @@ const Volunteers = () => {
             </div>
         </div>
     <div className='w-full flex flex-col items-center'>
-       <h1 className='text-center text-accent text-2xl md:text-4xl font-bold space-x-5 w-full'>THANK YOU FOR SHOWING YOUR INTEREST</h1>
+       <h1 className='text-center text-accent text-2xl md:text-4xl font-bold space-x-5 w-full mt-14'>THANK YOU FOR SHOWING YOUR INTEREST</h1>
        <h1 className='text-center text-accent text-2xl md:text-4xl font-bold space-x-5 w-full'>VOLUNTEERS ARE ALWAYS WELCOME</h1><br/>
        <span className='bg-accent text-white block text center text-2xl md:text-4xl font-bold my-10'>MEET OUR VOLUNTEERS</span>
        <div className='grid grid-cols-1 md:grid-cols-3'>
